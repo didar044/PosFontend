@@ -38,7 +38,23 @@ function SideBar() {
               </ul>
             </li>
 
-           {/* <li className="submenu">
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                <i class="fas fa-truck"></i> 
+                <span>Supplier</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+                <li><NavLink to="/pages/supplier/supplierlist">Supplier  List</NavLink></li> 
+                <li><NavLink to="/pages/supplier/supplierlist/add">Add Supplier </NavLink></li> 
+                {/* <li><a href="pos.html">POS</a></li>
+                <li><a href="pos.html">New Sales</a></li>
+                <li><a href="salesreturnlists.html">Sales Return List</a></li>
+                <li><a href="createsalesreturns.html">New Sales Return</a></li> */}
+              </ul>
+            </li>
+
+           {/*<li className="submenu">
               <a href="javascript:void(0);">
                 <img src="assets/img/icons/sales1.svg" alt="Sales" />
                 <span>Sales</span>

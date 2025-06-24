@@ -11,6 +11,9 @@ import EditBrand from './pages/product/brand/EditBrand';
 import CategoryList from './pages/product/category/CategoryList';
 import AddCategorie from './pages/product/category/AddCategorie';
 import EditCategorie from './pages/product/category/EditCategorie';
+import SupplierList from './pages/supplier/SupplierList';
+import AddSupplier from './pages/supplier/AddSupplier';
+import EditSupplier from './pages/supplier/EditSupplier';
 
 
 
@@ -31,6 +34,11 @@ function App() {
            <Route path='pages/product/categorielist' element={<CategoryList/>}/>
            <Route path='pages/product/categorielist/add' element={<AddCategorie/>} />
            <Route path='pages/product/categorielist/edit/:id' element={<EditCategorie/>} />
+
+
+           <Route path='pages/supplier/supplierlist' element={<SupplierList/>}/>
+           <Route path='pages/supplier/supplierlist/add' element={<AddSupplier/>} />
+            <Route path='pages/supplier/supplierlist/edit/:id' element={<EditSupplier/>} />
         
 
           
