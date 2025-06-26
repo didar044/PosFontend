@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function AddProduct() {
+function EditProduct() {
+  const { id } = useParams();
   const navigate = useNavigate();
+
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
@@ -11,7 +13,7 @@ function AddProduct() {
   const [formData, setFormData] = useState({
     name: '',
     brand_id: '',
-    categorie_id: '', // spelling matches Laravel DB
+    categorie_id: '',
     supplier_id: '',
     barcode: '',
     price: '',
@@ -23,6 +25,10 @@ function AddProduct() {
     img: null,
   });
 
+  const [existingImg, setExistingImg] = useState(null);
+  const [previewImg, setPreviewImg] = useState(null);
+
+  // Load brands
   useEffect(() => {
     fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/brands')
       .then(res => res.json())
@@ -30,6 +36,7 @@ function AddProduct() {
       .catch(err => console.error('Failed to fetch brands:', err));
   }, []);
 
+  // Load categories
   useEffect(() => {
     fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/caregoties')
       .then(res => res.json())
@@ -40,6 +47,7 @@ function AddProduct() {
       .catch(err => console.error('Failed to fetch categories:', err));
   }, []);
 
+  // Load suppliers
   useEffect(() => {
     fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/suppliers')
       .then(res => res.json())
@@ -50,10 +58,56 @@ function AddProduct() {
       .catch(err => console.error('Failed to fetch suppliers:', err));
   }, []);
 
+  // Load product data if editing
+  useEffect(() => {
+    if (id) {
+      fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products/${id}`)
+        .then(res => res.json())
+        .then(product => {
+          setFormData({
+            name: product.name || '',
+            brand_id: product.brand_id || '',
+            categorie_id: product.categorie_id || '',
+            supplier_id: product.supplier_id || '',
+            barcode: product.barcode || '',
+            price: product.price || '',
+            discount: product.discount || '',
+            tax: product.tax || '',
+            quantity: product.quantity || '',
+            status: product.status || 'active',
+            description: product.description || '',
+            img: null,
+          });
+          setExistingImg(product.img || null);
+
+          // Filter categories for this brand
+          const filtered = categories.filter(cat => String(cat.brand_id) === String(product.brand_id));
+          setFilteredCategories(filtered);
+        })
+        .catch(err => console.error('Failed to fetch product details:', err));
+    }
+  }, [id, categories]);
+
+  // Cleanup preview URL on unmount or when preview changes
+  useEffect(() => {
+    return () => {
+      if (previewImg) {
+        URL.revokeObjectURL(previewImg);
+      }
+    };
+  }, [previewImg]);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'img') {
-      setFormData({ ...formData, img: files[0] });
+      const file = files[0];
+      setFormData({ ...formData, img: file });
+      if (file) {
+        const previewURL = URL.createObjectURL(file);
+        setPreviewImg(previewURL);
+      } else {
+        setPreviewImg(null);
+      }
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -82,45 +136,60 @@ function AddProduct() {
       img: null,
     });
     setFilteredCategories([]);
+    setExistingImg(null);
+    setPreviewImg(null);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const form = new FormData();
-    Object.keys(formData).forEach(key => {
-      if (formData[key] !== null && formData[key] !== undefined) {
-        form.append(key, formData[key]);
-      }
+  const formDataToSend = new FormData();
+  Object.keys(formData).forEach(key => {
+    if (formData[key] !== null && formData[key] !== undefined) {
+      formDataToSend.append(key, formData[key]);
+    }
+  });
+
+  if (id) {
+    formDataToSend.append('_method', 'PUT');
+  }
+
+  const url = id
+    ? `http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products/${id}`
+    : `http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products`;
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      body: formDataToSend,
+      headers: {
+        Accept: 'application/json',
+      },
     });
 
-    try {
-      const res = await fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products', {
-        method: 'POST',
-        body: form,
-      });
-
-      const json = await res.json();
-
-      if (res.ok) {
-        alert('Product added successfully!');
-        navigate('/pages/product/productlist');
-      } else {
-        console.error('Error response:', json);
-        alert('Failed to add product');
-      }
-    } catch (error) {
-      console.error('Submit error:', error);
-      alert('Error submitting form');
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error('Error response:', errorText);
+      alert('Failed to submit product');
+      return;
     }
-  };
+
+    const json = await res.json();
+    alert(id ? 'Product updated successfully!' : 'Product added successfully!');
+    navigate('/pages/product/productlist'); 
+  } catch (err) {
+    console.error('Submit error:', err);
+    alert('Error submitting form');
+  }
+};
+
 
   return (
     <div>
       <div className="page-header">
         <div className="page-title">
-          <h4>Product Add</h4>
-          <h6>Create new product</h6>
+          <h4>{id ? 'Edit Product' : 'Add Product'}</h4>
+          <h6>{id ? 'Update existing product' : 'Create new product'}</h6>
         </div>
       </div>
 
@@ -203,6 +272,21 @@ function AddProduct() {
             <div className="col-lg-12">
               <label>Product Image</label>
               <input type="file" name="img" onChange={handleChange} className="form-control" />
+              {previewImg ? (
+                <img
+                  src={previewImg}
+                  alt="Preview"
+                  style={{ width: 50, height: 50, objectFit: 'cover', marginBottom: 5 }}
+                />
+              ) : existingImg ? (
+                <img
+                  src={`http://didar.intelsofts.com/Laravel_React/B_POS/public/img/product/${existingImg}`}
+                  alt={formData.name}
+                  style={{ width: 50, height: 50, objectFit: 'cover', marginBottom: 5 }}
+                />
+              ) : (
+                '-'
+              )}
             </div>
 
             <div className="col-lg-12 mt-3">
@@ -216,4 +300,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default EditProduct;

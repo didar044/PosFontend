@@ -19,12 +19,14 @@ import EditWarehouse from './pages/warehouse/warehouse/EditWarehouse';
 import AddWarehouse from './pages/warehouse/warehouse/AddWarehouse';
 import ProductList from './pages/product/product/ProductList';
 import AddProduct from './pages/product/product/AddProduct';
+import EditProduct from './pages/product/product/EditProduct';
+import ShowProduct from './pages/product/product/ShowProduct';
 
 
 
 function App() {
   return (
-      //  <BrowserRouter basename="/Laravel_React/dist">
+    //  <BrowserRouter basename="/Laravel_React/dist">
      <BrowserRouter> 
       <Routes>
         <Route path='/' element={<MainLayout/>}>
@@ -50,6 +52,8 @@ function App() {
            
            <Route path='pages/product/productlist'  element={ <ProductList/>}/>
            <Route path='pages/product/productlist/add'  element={ <AddProduct/>}/>
+           <Route path='pages/product/productlist/edit/:id' element={ <EditProduct/>} />
+           <Route path='pages/product/productlist/show/:id' element={ <ShowProduct/>} />
 
         
 

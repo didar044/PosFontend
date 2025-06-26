@@ -13,7 +13,7 @@ function ProductList() {
   const fetchProducts = async (page = 1) => {
     setLoading(true);
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/products?page=${page}`);
+      const res = await fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products?page=${page}`);
       const json = await res.json();
       setProductsData(json);
     } catch (error) {
@@ -30,7 +30,7 @@ function ProductList() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/products/${id}`, {
+      const res = await fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/products/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {
@@ -106,23 +106,34 @@ function ProductList() {
                     <td>
                       {product.img ? (
                         <img
-                          src={`http://127.0.0.1:8000/img/product/${product.img}`}
+                          src={`http://didar.intelsofts.com/Laravel_React/B_POS/public/img/product/${product.img}`}
                           alt={product.name}
                           style={{ width: 50, height: 50, objectFit: 'cover' }}
                         />
                       ) : '-'}
                     </td>
-                    <td>
-                      <NavLink to={`/pages/product/edit/${product.id}`} title="Edit">
-                        <i className="bi bi-pencil-square" style={{ fontSize: 20 }}></i>
-                      </NavLink>
-                      <button
-                        onClick={() => handleDelete(product.id)}
-                        className="btn border-0 bg-transparent"
-                        title="Delete"
-                      >
-                        <i className="bi bi-trash" style={{ fontSize: 20, color: 'red' }}></i>
-                      </button>
+                    <td> 
+                        <div className="d-flex align-items-center gap-2">
+                        
+                          <NavLink to={`/pages/product/productlist/edit/${product.id}`} title="Edit">
+                            <i className="bi bi-pencil-square" style={{ fontSize: 20 }}></i>
+                          </NavLink>
+
+                          
+                          <NavLink to={`/pages/product/productlist/show/${product.id}`} title="View">
+                            <i className="bi bi-eye" style={{ fontSize: 20 }}></i>
+                          </NavLink>
+
+
+                          <button
+                            onClick={() => handleDelete(product.id)}
+                            className="btn border-0 bg-transparent"
+                            title="Delete"
+                          >
+                            <i className="bi bi-trash" style={{ fontSize: 20, color: 'red' }}></i>
+                          </button>
+                        </div>
+
                     </td>
                   </tr>
                 ))

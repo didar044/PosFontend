@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import logo from '../../public/assets/myimg/logo.png';
-// import logoSmall from '../../public/assets/myimg/logo-small.png';
+import logo from '../../public/assets/myimg/logo.png';
+import logoSmall from '../../public/assets/myimg/logo-small.png';
 
 
 export const Header = () => {
@@ -9,12 +9,12 @@ export const Header = () => {
     <div className="header">
       <div className="header-left active">
         <NavLink to="./" className="logo">
-          {/* <img src={logo} alt="Logo" /> */}
-          <img src="/assets/myimg/logo.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
+          {/* <img src="/assets/myimg/logo.png" alt="Logo" /> */}
         </NavLink>
         <NavLink to="./" className="logo-small">
-          {/* <img src={logoSmall} alt="Small Logo" /> */}
-          <img src="/assets/myimg/logo-small.png" alt="Small Logo" />
+          <img src={logoSmall} alt="Small Logo" />
+          {/* <img src="/assets/myimg/logo-small.png" alt="Small Logo" /> */}
         </NavLink>
         <a id="toggle_btn" href="javascript:void(0);"> </a>
       </div>
