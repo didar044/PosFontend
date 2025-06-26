@@ -14,6 +14,11 @@ import EditCategorie from './pages/product/category/EditCategorie';
 import SupplierList from './pages/supplier/SupplierList';
 import AddSupplier from './pages/supplier/AddSupplier';
 import EditSupplier from './pages/supplier/EditSupplier';
+import WarehouseList from './pages/warehouse/warehouse/WarehouseList';
+import EditWarehouse from './pages/warehouse/warehouse/EditWarehouse';
+import AddWarehouse from './pages/warehouse/warehouse/AddWarehouse';
+import ProductList from './pages/product/product/ProductList';
+import AddProduct from './pages/product/product/AddProduct';
 
 
 
@@ -35,10 +40,17 @@ function App() {
            <Route path='pages/product/categorielist/add' element={<AddCategorie/>} />
            <Route path='pages/product/categorielist/edit/:id' element={<EditCategorie/>} />
 
-
-           <Route path='pages/supplier/supplierlist' element={<SupplierList/>}/>
+           <Route path='pages/supplier/supplierlist'  element={<SupplierList/>}/>
            <Route path='pages/supplier/supplierlist/add' element={<AddSupplier/>} />
-            <Route path='pages/supplier/supplierlist/edit/:id' element={<EditSupplier/>} />
+           <Route path='pages/supplier/supplierlist/edit/:id' element={<EditSupplier/>} />
+
+           <Route path='pages/warehouse/warehouselist'  element={ <WarehouseList/>}/>
+           <Route path='pages/warehouse/warehouselist/add' element={<AddWarehouse/>} />
+           <Route path='pages/warehouse/warehouselist/edit/:id' element={ <EditWarehouse/>} />
+           
+           <Route path='pages/product/productlist'  element={ <ProductList/>}/>
+           <Route path='pages/product/productlist/add'  element={ <AddProduct/>}/>
+
         
 
           
