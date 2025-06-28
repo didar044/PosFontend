@@ -71,6 +71,7 @@ function CategoryList() {
                         <span className="checkmarks"></span>
                       </label>
                     </th>
+                    <th>Id</th>
                     <th>Category name</th>
                     <th>Brand ID</th>
                     <th>Description</th>
@@ -92,6 +93,7 @@ function CategoryList() {
                             <span className="checkmarks"></span>
                           </label>
                         </td>
+                        <td>{cat.id}</td>
                         <td>{cat.name}</td>
                         <td>{cat.brand?.name || 'No Brand'}</td>
                         <td>{cat.description}</td>

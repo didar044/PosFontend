@@ -1,0 +1,136 @@
+/* Base layout */
+.page-header {
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+.page-title h4 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+.page-title h6 {
+  margin: 5px 0 0;
+  color: #777;
+  font-weight: 400;
+}
+
+/* Card structure */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.card-body {
+  padding: 0;
+}
+.card-sales-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-sales-split h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #444;
+}
+.card-sales-split ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.card-sales-split ul li a img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Table section */
+.invoice-box {
+  font-size: 14px;
+  color: #555;
+}
+.invoice-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.invoice-box td,
+.invoice-box th {
+  padding: 12px;
+  vertical-align: top;
+}
+.invoice-box thead {
+  background-color: #f3f2f7;
+}
+.invoice-box tbody tr:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0;
+}
+.invoice-box td img {
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Totals section */
+.row ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.row ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.row ul li strong {
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-submit {
+  background-color: #7367f0;
+  color: #fff;
+}
+.btn-cancel {
+  background-color: #f3f3f3;
+  color: #333;
+  margin-top: 20px;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card-sales-split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-sales-split ul {
+    margin-top: 10px;
+  }
+
+  .invoice-box td {
+    display: block;
+    width: 100%;
+  }
+
+  .row ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

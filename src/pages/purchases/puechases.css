@@ -1,0 +1,33 @@
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-left: 10px;
+}
+
+select{
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid;
+    margin-left: 5px;
+}
+label{
+    font-size: 18px;
+    font-weight: 400;
+}
+.pd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-top: 20px;
+  color: rgb(4, 66, 4);
+}
+
+.pd .col-lg-4 {
+  flex: 1;
+}
+

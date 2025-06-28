@@ -21,13 +21,16 @@ import ProductList from './pages/product/product/ProductList';
 import AddProduct from './pages/product/product/AddProduct';
 import EditProduct from './pages/product/product/EditProduct';
 import ShowProduct from './pages/product/product/ShowProduct';
+import PurchasesList from './pages/purchases/PurchasesList';
+import AddPurchases from './pages/purchases/AddPurchases';
+import ShowPurchases from './pages/purchases/ShowPurchases';
 
 
 
 function App() {
   return (
-    //  <BrowserRouter basename="/Laravel_React/dist">
-     <BrowserRouter> 
+      <BrowserRouter basename="/Laravel_React/dist">
+      {/* <BrowserRouter>   */}
       <Routes>
         <Route path='/' element={<MainLayout/>}>
 
@@ -54,6 +57,10 @@ function App() {
            <Route path='pages/product/productlist/add'  element={ <AddProduct/>}/>
            <Route path='pages/product/productlist/edit/:id' element={ <EditProduct/>} />
            <Route path='pages/product/productlist/show/:id' element={ <ShowProduct/>} />
+
+           <Route path='pages/purchases/productlist' element={ <PurchasesList/>} />
+           <Route path='pages/purchases/productlist/add'  element={ <AddPurchases/>}/>
+           <Route path='pages/purchases/productlist/show/:id' element={ <ShowPurchases/>} />
 
         
 

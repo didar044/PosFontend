@@ -18,26 +18,30 @@ function SideBar() {
             <li className="submenu">
               <a href="javascript:void(0);">
                 <i className='bx bx-cube'></i>
-                <span>Product</span>
+                <span>Inventory</span>
                 <span className="menu-arrow"></span>
               </a>
-              <ul>
-                
+              <ul>              
                 <li><NavLink to="pages/product/productlist" end>Product List</NavLink></li>
                 <li><NavLink to="pages/product/productlist/add" >Add Product </NavLink></li>
                 <li><NavLink to="pages/product/brand">Brand </NavLink></li>
                  <li><NavLink to="pages/product/categorielist">Category List</NavLink></li>
-                {/* <li><a href="addproduct.html">Add Product</a></li>
-                
-                <li><a href="addcategory.html">Add Category</a></li>
-                <li><a href="subcategorylist.html">Sub Category List</a></li>
-                <li><a href="subaddcategory.html">Add Sub Category</a></li> */}
-                
-                {/* <li><a href="addbrand.html">Add Brand</a></li>
-                <li><a href="importproduct.html">Import Products</a></li>
-                <li><a href="barcode.html">Print Barcode</a></li> */}
               </ul>
             </li>
+               
+
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                <i className="bi bi-bag-check"></i> 
+                <span>Purchase</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+                <li><NavLink to="/pages/purchases/productlist" end>Purchase  List</NavLink></li> 
+                <li><NavLink to="/pages/purchases/productlist/add">Add Purchase </NavLink></li> 
+              </ul>
+            </li>
+
 
             <li className="submenu">
               <a href="javascript:void(0);">
@@ -48,10 +52,6 @@ function SideBar() {
               <ul>
                 <li><NavLink to="/pages/supplier/supplierlist" end>Supplier  List</NavLink></li> 
                 <li><NavLink to="/pages/supplier/supplierlist/add">Add Supplier </NavLink></li> 
-                {/* <li><a href="pos.html">POS</a></li>
-                <li><a href="pos.html">New Sales</a></li>
-                <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                <li><a href="createsalesreturns.html">New Sales Return</a></li> */}
               </ul>
             </li>
             <li className="submenu">
@@ -63,10 +63,6 @@ function SideBar() {
               <ul>
                 <li><NavLink to="/pages/warehouse/warehouselist" end>Warehouse List</NavLink></li> 
                 <li><NavLink to="/pages/warehouse/warehouselist/add">Add Warehouse </NavLink></li> 
-                {/* <li><a href="pos.html">POS</a></li>
-                <li><a href="pos.html">New Sales</a></li>
-                <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                <li><a href="createsalesreturns.html">New Sales Return</a></li> */}
               </ul>
             </li>
 

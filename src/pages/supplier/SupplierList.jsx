@@ -66,6 +66,7 @@ function SupplierList() {
                         <span className="checkmarks"></span>
                       </label>
                     </th>
+                    <th>Id</th>
                     <th>Supplier Name</th>
                     <th>Phone</th>
                     <th>Email</th>
@@ -87,6 +88,7 @@ function SupplierList() {
                             <span className="checkmarks"></span>
                           </label>
                         </td>
+                        <td>{supplier.id}</td>
                         <td>{supplier.name}</td>
                         <td>{supplier.phone || '-'}</td>
                         <td>{supplier.email}</td>

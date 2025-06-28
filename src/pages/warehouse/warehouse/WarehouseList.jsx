@@ -64,6 +64,7 @@ function WarehouseList() {
                         <span className="checkmarks"></span>
                       </label>
                     </th>
+                    <th>Id</th>
                     <th>Warehouse Name</th>
                     <th>Location</th>
                     <th>Action</th>
@@ -83,6 +84,7 @@ function WarehouseList() {
                             <span className="checkmarks"></span>
                           </label>
                         </td>
+                        <td>{warehouse.id}</td>
                         <td>{warehouse.name}</td>
                         <td>{warehouse.location || '-'}</td>
                         <td>
