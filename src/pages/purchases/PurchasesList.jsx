@@ -8,11 +8,11 @@ function PurchasesList() {
     last_page: 1,
     total: 0,
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [openStatusId, setOpenStatusId] = useState(null);
 
   const fetchPurchases = async (page = 1) => {
-    setLoading(true);
+    setLoading(false);
     try {
       const res = await fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/purchases?page=${page}`);
       const json = await res.json();
@@ -28,22 +28,22 @@ function PurchasesList() {
     fetchPurchases();
   }, []);
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this purchase?')) return;
-    try {
-      const res = await fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/purchases/${id}`, {
-        method: 'DELETE',
-      });
-      if (res.ok) {
-        fetchPurchases(purchasesData.current_page);
-      } else {
-        alert('Failed to delete purchase');
-      }
-    } catch (error) {
-      console.error('Delete error:', error);
-      alert('Failed to delete purchase');
-    }
-  };
+  // const handleDelete = async (id) => {
+  //   if (!window.confirm('Are you sure you want to delete this purchase?')) return;
+  //   try {
+  //     const res = await fetch(`http://didar.intelsofts.com/Laravel_React/B_POS/public/api/purchases/${id}`, {
+  //       method: 'DELETE',
+  //     });
+  //     if (res.ok) {
+  //       fetchPurchases(purchasesData.current_page);
+  //     } else {
+  //       alert('Failed to delete purchase');
+  //     }
+  //   } catch (error) {
+  //     console.error('Delete error:', error);
+  //     alert('Failed to delete purchase');
+  //   }
+  // };
 
   const handleStatusChange = async (id, newStatus) => {
     try {
@@ -65,18 +65,13 @@ function PurchasesList() {
       alert('Error updating status');
     }
   };
-
+if (loading) return <p>Loading Purchase List...</p>;
   return (
     <div>
       <div className="page-header">
         <div className="page-title">
           <h4>PURCHASE LIST</h4>
           <h6>Manage your purchases</h6>
-        </div>
-        <div className="page-btn">
-          <NavLink to="/addpurchase" className="btn btn-added">
-            <img src="assets/img/icons/plus.svg" alt="Add" /> Add New Purchase
-          </NavLink>
         </div>
       </div>
 
@@ -174,7 +169,7 @@ function PurchasesList() {
                           </td>
                           <td>
                             <div className="d-flex align-items-center gap-2">
-                              <NavLink to={`/pages/purchases/productlist/show/${purchase.id}`} title="Edit">
+                              <NavLink to={`/pages/purchases/productlist/edit/${purchase.id}`} title="Edit">
                                 <i className="bi bi-pencil-square" style={{ fontSize: 20 }}></i>
                               </NavLink>
     

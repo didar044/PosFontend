@@ -43,13 +43,13 @@ export const Header = () => {
                 </div>
               </div>
               <a className="btn" id="searchdiv" href="javascript:void(0);">
-                <img src="assets/img/icons/search.svg" alt="img" />
+                <i className="bi bi-search" style={{ fontSize: '20px', color: '#333' }}></i>
               </a>
             </form>
           </div>
         </li>
 
-        <li className="nav-item dropdown has-arrow flag-nav">
+        {/* <li className="nav-item dropdown has-arrow flag-nav">
           <a
             className="nav-link dropdown-toggle"
             data-bs-toggle="dropdown"
@@ -72,7 +72,7 @@ export const Header = () => {
               <img src="assets/img/flags/de.png" alt="" height="16" /> German
             </a>
           </div>
-        </li>
+        </li> */}
 
         <li className="nav-item dropdown">
           <a
@@ -80,10 +80,10 @@ export const Header = () => {
             className="dropdown-toggle nav-link"
             data-bs-toggle="dropdown"
           >
-            <img src="assets/img/icons/notification-bing.svg" alt="img" />
+            <i className="bi bi-bell" style={{ fontSize: '24px', color: '#6e5757' }}></i>
             <span className="badge rounded-pill">4</span>
           </a>
-          <div className="dropdown-menu notifications">
+          {/* <div className="dropdown-menu notifications">
             <div className="topnav-dropdown-header">
               <span className="notification-title">Notifications</span>
               <a href="javascript:void(0)" className="clear-noti">
@@ -113,13 +113,13 @@ export const Header = () => {
                     </div>
                   </a>
                 </li>
-                {/* Other notifications omitted for brevity */}
+               
               </ul>
             </div>
             <div className="topnav-dropdown-footer">
               <a href="activities.html">View all Notifications</a>
             </div>
-          </div>
+          </div> */}
         </li>
 
         <li className="nav-item dropdown has-arrow main-drop">
@@ -129,7 +129,7 @@ export const Header = () => {
             data-bs-toggle="dropdown"
           >
             <span className="user-img">
-              <img src="assets/img/profiles/avator1.jpg" alt="" />
+              <img src="/assets/myimg/pos.jpg" alt="" />
               <span className="status online"></span>
             </span>
           </a>
@@ -137,7 +137,7 @@ export const Header = () => {
             <div className="profilename">
               <div className="profileset">
                 <span className="user-img">
-                  <img src="assets/img/profiles/avator1.jpg" alt="" />
+                  <img src="/assets/myimg/pos.jpg" alt="" />
                   <span className="status online"></span>
                 </span>
                 <div className="profilesets">
@@ -146,7 +146,7 @@ export const Header = () => {
                 </div>
               </div>
               <hr className="m-0" />
-              <a className="dropdown-item" href="profile.html">
+              <a className="dropdown-item" href="#">
                 <i className="me-2" data-feather="user"></i> My Profile
               </a>
               <a className="dropdown-item" href="generalsettings.html">

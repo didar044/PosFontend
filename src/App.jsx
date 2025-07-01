@@ -24,13 +24,28 @@ import ShowProduct from './pages/product/product/ShowProduct';
 import PurchasesList from './pages/purchases/PurchasesList';
 import AddPurchases from './pages/purchases/AddPurchases';
 import ShowPurchases from './pages/purchases/ShowPurchases';
+import EditPurchases from './pages/purchases/EditPurchases';
+import StockList from './pages/stock/stock/StockList';
+import StockTransferList from './pages/stock/stocktransfer/StockTransferList';
+import StockTransfer from './pages/stock/stocktransfer/StockTransfer';
+import CustomerList from './pages/customer/CustomerList';
+import AddCustomer from './pages/customer/AddCustomer';
+import EditCustomer from './pages/customer/EditCustomer';
+import ExpanseCategorie from './pages/expense/ecpensecategorie/ExpanseCategorie';
+import AddExpanseCategorie from './pages/expense/ecpensecategorie/AddExpanseCategorie';
+import EditRxpenseCategorie from './pages/expense/ecpensecategorie/EditRxpenseCategorie';
+import Expense from './pages/expense/expense/Expense';
+import AddExpanse from './pages/expense/expense/AddExpanse';
+import EditExpanse from './pages/expense/expense/EditExpanse';
+
+
 
 
 
 function App() {
   return (
-      <BrowserRouter basename="/Laravel_React/dist">
-      {/* <BrowserRouter>   */}
+          <BrowserRouter basename="/Laravel_React/dist">
+        {/* //</BrowserRouter> */}
       <Routes>
         <Route path='/' element={<MainLayout/>}>
 
@@ -61,10 +76,25 @@ function App() {
            <Route path='pages/purchases/productlist' element={ <PurchasesList/>} />
            <Route path='pages/purchases/productlist/add'  element={ <AddPurchases/>}/>
            <Route path='pages/purchases/productlist/show/:id' element={ <ShowPurchases/>} />
+           <Route path='pages/purchases/productlist/edit/:id' element={ <EditPurchases/>} />
 
-        
-
+           <Route path='pages/stock/stocklist' element={ <StockList/>} />
           
+           <Route path='pages/stocktransfer/stocktransferlist' element={ <StockTransferList/>} />
+           <Route path='pages/stocktransfer/stocktransfer' element={<StockTransfer/>} />
+
+           <Route path='pages/customer/customerlist' element={ <CustomerList/>} />
+           <Route path='pages/customer/customerlist/add' element={ <AddCustomer/>} />
+           <Route path='pages/customer/customerlist/edit/:id' element={ <EditCustomer/>} />
+          
+           <Route path='pages/expansecategorie/expansecategorielist' element={ <ExpanseCategorie/> } />
+           <Route path='pages/expansecategorie/expansecategorielist/add' element={ <AddExpanseCategorie/> } />
+           <Route path='pages/expansecategorie/expansecategorielist/edit/:id' element={ <EditRxpenseCategorie/> } />
+
+           <Route path='pages/expanse/expanselist' element={ <Expense/> } />
+           <Route path='pages/expanse/expanselist/add' element={ <AddExpanse/> } />
+           <Route path='pages/expanse/expanse/edit/:id' element={ <EditExpanse/> } />
+
         </Route>
       </Routes>
     </BrowserRouter>

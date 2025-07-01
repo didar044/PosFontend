@@ -74,7 +74,7 @@ function ProductList() {
                 <th>Product Name</th>
                 <th>Brand</th>
                 <th>Category</th>
-                <th>Supplier</th>
+                {/* <th>Supplier</th> */}
                 <th>SKU</th>
                 
                 <th>Price</th>
@@ -97,7 +97,7 @@ function ProductList() {
                     <td>{product.name}</td>
                     <td>{product.brand?.name || '-'}</td>
                     <td>{product.categorie?.name || '-'}</td>
-                    <td>{product.supplier?.name || '-'}</td>
+                    {/* <td>{product.supplier?.name || '-'}</td> */}
                     <td>{product.barcode || '-'}</td>
                     
                     <td>{product.price}</td>

@@ -27,7 +27,7 @@ function ShowPurchases() {
       <div className="card">
         <div className="card-body">
           <div className="card-sales-split">
-            <h2>Purchase Detail : {purchase.reference || `#${purchase.id}`}</h2>
+            <h2>Purchase Id : {purchase.id}</h2>
             <ul>
               {/* <li><a href="#"><img src="/assets/img/icons/edit.svg" alt="edit" /></a></li>
               <li><a href="#"><img src="/assets/img/icons/pdf.svg" alt="pdf" /></a></li>
@@ -62,6 +62,7 @@ function ShowPurchases() {
                           {/* Purchase Info */}
                           <td style={{ padding: '10px' }}>
                             <h5 style={{ color: '#7367f0' }}>Invoice Info</h5>
+                            <div>Invoice No: {purchase.id}</div>
                             <div>Ref: {purchase.reference}</div>
                             <div>Status: {purchase.status}</div>
                             <div>Date: {purchase.purchase_date}</div>
@@ -74,6 +75,7 @@ function ShowPurchases() {
 
                 {/* Table Header */}
                 <tr style={{ backgroundColor: '#f3f2f7' }}>
+                  <td>Product Id</td>
                   <td>Product</td>
                   <td>QTY</td>
                   <td>Unit Price</td>
@@ -85,6 +87,7 @@ function ShowPurchases() {
                 {/* Purchase Items */}
                 {purchase.items?.map((item, index) => (
                   <tr key={index} style={{ borderBottom: '1px solid #e9ecef' }}>
+                    <td>{item.product?.id}</td>
                     <td style={{ display: 'flex', alignItems: 'center' }}>
                       <img
                         src={`http://didar.intelsofts.com/Laravel_React/B_POS/public/img/product/${item.product?.img}`}

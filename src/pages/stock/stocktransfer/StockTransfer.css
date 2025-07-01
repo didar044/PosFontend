@@ -1,0 +1,45 @@
+
+/* Make form labels slightly bolder and larger */
+label {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #241d1d !important;
+}
+
+/* Style inputs, selects, and textarea for consistency */
+.form-control {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Better button spacing and design */
+.btn-submit {
+  background-color: #4CAF50;
+  color: white;
+ 
+}
+
+.btn-cancel {
+  background-color: #f44336;
+  color: white;
+ 
+}
+
+/* Add spacing between form groups */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  label {
+    font-size: 14px;
+  }
+
+  .btn-submit, .btn-cancel {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

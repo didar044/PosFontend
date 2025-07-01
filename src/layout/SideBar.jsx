@@ -42,7 +42,7 @@ function SideBar() {
               </ul>
             </li>
 
-
+           
             <li className="submenu">
               <a href="javascript:void(0);">
                 <i className="fas fa-truck"></i> 
@@ -65,7 +65,56 @@ function SideBar() {
                 <li><NavLink to="/pages/warehouse/warehouselist/add">Add Warehouse </NavLink></li> 
               </ul>
             </li>
+               
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                	<i className="bi bi-layers"></i>
+                <span>Stock</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+                <li><NavLink to="/pages/stock/stocklist" >Stock List</NavLink></li>
+                <li><NavLink to="/pages/stocktransfer/stocktransferlist" >Stock Transfer List </NavLink></li>  
+                <li><NavLink to="/pages/stocktransfer/stocktransfer" >Stock Transfer </NavLink></li>  
+                
+              </ul>
+            </li>
 
+
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                	<i className="bi bi-person"></i>
+                <span>Customer</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+                <li><NavLink to="/pages/customer/customerlist" end>Customer List</NavLink></li> 
+                <li><NavLink to="/pages/customer/customerlist/add">Add Customer </NavLink></li> 
+                {/* <li><NavLink to="/pages/stocktransfer/stocktransferlist" >Stock Transfer List </NavLink></li>  
+                <li><NavLink to="/pages/stocktransfer/stocktransfer" >Stock Transfer </NavLink></li>   */}
+                
+              </ul>
+            </li>
+
+            
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                	<i className="bi bi-receipt"></i>
+                <span>Expense</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+
+                <li><NavLink to="/pages/expanse/expanselist" end>Expanse </NavLink></li> 
+                 <li><NavLink to="/pages/expanse/expanselist/add">Add Expanse </NavLink></li> 
+                <li><NavLink to="/pages/expansecategorie/expansecategorielist" end>Expanse Categorie</NavLink></li> 
+                
+                {/* <li><NavLink to="/pages/stocktransfer/stocktransferlist" >Stock Transfer List </NavLink></li>  
+                <li><NavLink to="/pages/stocktransfer/stocktransfer" >Stock Transfer </NavLink></li>   */}
+                
+              </ul>
+            </li>
+                
            {/*<li className="submenu">
               <a href="javascript:void(0);">
                 <img src="assets/img/icons/sales1.svg" alt="Sales" />

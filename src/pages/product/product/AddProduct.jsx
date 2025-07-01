@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import  { useEffect, useState } from 'react';
+import {  useNavigate } from 'react-router-dom';
 
 function AddProduct() {
   const navigate = useNavigate();
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
-  const [suppliers, setSuppliers] = useState([]);
+  // const [suppliers, setSuppliers] = useState([]);
 
   const [formData, setFormData] = useState({
     name: '',
     brand_id: '',
     categorie_id: '', // spelling matches Laravel DB
-    supplier_id: '',
+    // supplier_id: '',
     barcode: '',
     price: '',
     discount: '',
@@ -40,15 +40,15 @@ function AddProduct() {
       .catch(err => console.error('Failed to fetch categories:', err));
   }, []);
 
-  useEffect(() => {
-    fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/suppliers')
-      .then(res => res.json())
-      .then(json => {
-        const data = Array.isArray(json) ? json : json.data || [];
-        setSuppliers(data);
-      })
-      .catch(err => console.error('Failed to fetch suppliers:', err));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/suppliers')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       const data = Array.isArray(json) ? json : json.data || [];
+  //       setSuppliers(data);
+  //     })
+  //     .catch(err => console.error('Failed to fetch suppliers:', err));
+  // }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -71,7 +71,7 @@ function AddProduct() {
       name: '',
       brand_id: '',
       categorie_id: '',
-      supplier_id: '',
+      // supplier_id: '',
       barcode: '',
       price: '',
       discount: '',
@@ -125,8 +125,8 @@ function AddProduct() {
       </div>
 
       <form onSubmit={handleSubmit}>
-        <div className="card">
-          <div className="card-body row">
+        <div className="card" >
+          <div className="card-body row" style={{gap: '20px'} }>
             <div className="col-lg-3 col-sm-6 col-12">
               <label>Product Name</label>
               <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" required />
@@ -152,7 +152,7 @@ function AddProduct() {
               </select>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-12">
+            {/* <div className="col-lg-3 col-sm-6 col-12">
               <label>Supplier</label>
               <select name="supplier_id" value={formData.supplier_id} onChange={handleChange} className="form-select" required>
                 <option value="">Select Supplier</option>
@@ -160,7 +160,7 @@ function AddProduct() {
                   <option key={sup.id} value={sup.id}>{sup.name}</option>
                 ))}
               </select>
-            </div>
+            </div> */}
 
             <div className="col-lg-3 col-sm-6 col-12">
               <label>SKU / Barcode</label>

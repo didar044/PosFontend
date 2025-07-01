@@ -8,13 +8,13 @@ function EditProduct() {
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
-  const [suppliers, setSuppliers] = useState([]);
+  // const [suppliers, setSuppliers] = useState([]);
 
   const [formData, setFormData] = useState({
     name: '',
     brand_id: '',
     categorie_id: '',
-    supplier_id: '',
+    // supplier_id: '',
     barcode: '',
     price: '',
     discount: '',
@@ -48,15 +48,15 @@ function EditProduct() {
   }, []);
 
   // Load suppliers
-  useEffect(() => {
-    fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/suppliers')
-      .then(res => res.json())
-      .then(json => {
-        const data = Array.isArray(json) ? json : json.data || [];
-        setSuppliers(data);
-      })
-      .catch(err => console.error('Failed to fetch suppliers:', err));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://didar.intelsofts.com/Laravel_React/B_POS/public/api/suppliers')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       const data = Array.isArray(json) ? json : json.data || [];
+  //       setSuppliers(data);
+  //     })
+  //     .catch(err => console.error('Failed to fetch suppliers:', err));
+  // }, []);
 
   // Load product data if editing
   useEffect(() => {
@@ -68,7 +68,7 @@ function EditProduct() {
             name: product.name || '',
             brand_id: product.brand_id || '',
             categorie_id: product.categorie_id || '',
-            supplier_id: product.supplier_id || '',
+            // supplier_id: product.supplier_id || '',
             barcode: product.barcode || '',
             price: product.price || '',
             discount: product.discount || '',
@@ -125,7 +125,7 @@ function EditProduct() {
       name: '',
       brand_id: '',
       categorie_id: '',
-      supplier_id: '',
+      // supplier_id: '',
       barcode: '',
       price: '',
       discount: '',
@@ -173,8 +173,7 @@ const handleSubmit = async (e) => {
       alert('Failed to submit product');
       return;
     }
-
-    const json = await res.json();
+     res.json();
     alert(id ? 'Product updated successfully!' : 'Product added successfully!');
     navigate('/pages/product/productlist'); 
   } catch (err) {
@@ -221,7 +220,7 @@ const handleSubmit = async (e) => {
               </select>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-12">
+            {/* <div className="col-lg-3 col-sm-6 col-12">
               <label>Supplier</label>
               <select name="supplier_id" value={formData.supplier_id} onChange={handleChange} className="form-select" required>
                 <option value="">Select Supplier</option>
@@ -229,7 +228,7 @@ const handleSubmit = async (e) => {
                   <option key={sup.id} value={sup.id}>{sup.name}</option>
                 ))}
               </select>
-            </div>
+            </div> */}
 
             <div className="col-lg-3 col-sm-6 col-12">
               <label>SKU / Barcode</label>

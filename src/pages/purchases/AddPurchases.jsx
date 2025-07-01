@@ -282,7 +282,7 @@ try {
             {/* Submit */}
             <div className="mt-3">
               <button type="submit" className="btn btn-submit me-2">Submit</button>
-              <a href="/purchaselist" className="btn btn-cancel">Cancel</a>
+              <NavLink to="/pages/purchases/productlist" className="btn btn-cancel">Cancel</NavLink>
             </div>
           </div>
         </div>
