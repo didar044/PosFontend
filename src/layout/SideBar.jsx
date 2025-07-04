@@ -39,10 +39,9 @@ function SideBar() {
               <ul>
                 <li><NavLink to="/pages/purchases/productlist" end>Purchase  List</NavLink></li> 
                 <li><NavLink to="/pages/purchases/productlist/add">Add Purchase </NavLink></li> 
+                <li><NavLink to="/pages/purchases/purchasesinvoice" >Purchase Invoice</NavLink></li> 
               </ul>
             </li>
-
-           
             <li className="submenu">
               <a href="javascript:void(0);">
                 <i className="fas fa-truck"></i> 
@@ -54,6 +53,33 @@ function SideBar() {
                 <li><NavLink to="/pages/supplier/supplierlist/add">Add Supplier </NavLink></li> 
               </ul>
             </li>
+
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                	<i className="bi bi-tag"></i>
+                <span>Sales</span>
+                <span className="menu-arrow"></span>
+              </a> 
+              <ul>
+                <li><NavLink to="/pages/sale/salelist" end>Sales List</NavLink></li> 
+                <li><NavLink to="/pages/sale/saleorder">Sale Order </NavLink></li> 
+                <li><NavLink to="/pages/sale/saleinvoice">Sale Money Receipt </NavLink></li> 
+              </ul>
+            </li>
+            <li className="submenu">
+              <a href="javascript:void(0);">
+                	<i className="bi bi-person"></i>
+                <span>Customer</span>
+                <span className="menu-arrow"></span>
+              </a>
+              <ul>
+                <li><NavLink to="/pages/customer/customerlist" end>Customer List</NavLink></li> 
+                <li><NavLink to="/pages/customer/customerlist/add">Add Customer </NavLink></li> 
+                
+                
+              </ul>
+            </li>
+
             <li className="submenu">
               <a href="javascript:void(0);">
                 	<i className="bi bi-building"></i>
@@ -81,20 +107,7 @@ function SideBar() {
             </li>
 
 
-            <li className="submenu">
-              <a href="javascript:void(0);">
-                	<i className="bi bi-person"></i>
-                <span>Customer</span>
-                <span className="menu-arrow"></span>
-              </a>
-              <ul>
-                <li><NavLink to="/pages/customer/customerlist" end>Customer List</NavLink></li> 
-                <li><NavLink to="/pages/customer/customerlist/add">Add Customer </NavLink></li> 
-                {/* <li><NavLink to="/pages/stocktransfer/stocktransferlist" >Stock Transfer List </NavLink></li>  
-                <li><NavLink to="/pages/stocktransfer/stocktransfer" >Stock Transfer </NavLink></li>   */}
-                
-              </ul>
-            </li>
+
 
             
             <li className="submenu">
@@ -109,11 +122,10 @@ function SideBar() {
                  <li><NavLink to="/pages/expanse/expanselist/add">Add Expanse </NavLink></li> 
                 <li><NavLink to="/pages/expansecategorie/expansecategorielist" end>Expanse Categorie</NavLink></li> 
                 
-                {/* <li><NavLink to="/pages/stocktransfer/stocktransferlist" >Stock Transfer List </NavLink></li>  
-                <li><NavLink to="/pages/stocktransfer/stocktransfer" >Stock Transfer </NavLink></li>   */}
-                
               </ul>
             </li>
+
+
                 
            {/*<li className="submenu">
               <a href="javascript:void(0);">

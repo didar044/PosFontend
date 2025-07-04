@@ -37,6 +37,14 @@ import EditRxpenseCategorie from './pages/expense/ecpensecategorie/EditRxpenseCa
 import Expense from './pages/expense/expense/Expense';
 import AddExpanse from './pages/expense/expense/AddExpanse';
 import EditExpanse from './pages/expense/expense/EditExpanse';
+import SalesList from './pages/sales/SalesList';
+import Saleorder from './pages/sales/Saleorder';
+import EditSale from './pages/sales/EditSale';
+import ShowSales from './pages/sales/ShowSales';
+import SaleInvoice from './pages/sales/SaleInvoice';
+import Reciept from './pages/sales/Reciept';
+import PurchasesInvoice from './pages/purchases/PurchasesInvoice';
+import PurchasesReceipt from './pages/purchases/PurchasesReceipt';
 
 
 
@@ -44,13 +52,13 @@ import EditExpanse from './pages/expense/expense/EditExpanse';
 
 function App() {
   return (
-          <BrowserRouter basename="/Laravel_React/dist">
-        {/* //</BrowserRouter> */}
+         <BrowserRouter basename="/Laravel_React/dist">
+       {/* <BrowserRouter>  */}
       <Routes>
         <Route path='/' element={<MainLayout/>}>
 
 
-          <Route index element={<DashBoard />} />
+           <Route index element={<DashBoard />} />
           
            <Route path='pages/product/brand' element={<Brand/>}/>
            <Route path='pages/product/brand/add' element={<AddBrand />} />
@@ -77,6 +85,8 @@ function App() {
            <Route path='pages/purchases/productlist/add'  element={ <AddPurchases/>}/>
            <Route path='pages/purchases/productlist/show/:id' element={ <ShowPurchases/>} />
            <Route path='pages/purchases/productlist/edit/:id' element={ <EditPurchases/>} />
+           <Route path='pages/purchases/purchasesinvoice' element={<PurchasesInvoice/>} />
+           <Route path='pages/purchases/purchasesreceipt/show/:id' element={ <PurchasesReceipt/>} />
 
            <Route path='pages/stock/stocklist' element={ <StockList/>} />
           
@@ -94,6 +104,15 @@ function App() {
            <Route path='pages/expanse/expanselist' element={ <Expense/> } />
            <Route path='pages/expanse/expanselist/add' element={ <AddExpanse/> } />
            <Route path='pages/expanse/expanse/edit/:id' element={ <EditExpanse/> } />
+
+            <Route path='pages/sale/salelist' element={ <SalesList/> } />
+            <Route path='pages/sale/saleorder' element={ <Saleorder/> } />
+            <Route path='pages/sale/salelist/edit/:id' element={ <EditSale/> } />
+            <Route path='pages/sale/salelist/show/:id' element={ <ShowSales/> } />
+            <Route path='pages/sale/saleinvoice' element={ <SaleInvoice/> } />
+            
+            <Route path='pages/sale/receipt/show/:id' element={ <Reciept/> } />
+            
 
         </Route>
       </Routes>

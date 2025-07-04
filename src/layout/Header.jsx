@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../public/assets/myimg/logo.png';
+import prologo from '../../public/assets/myimg/pos.jpg';
 import logoSmall from '../../public/assets/myimg/logo-small.png';
 
 
@@ -129,7 +130,8 @@ export const Header = () => {
             data-bs-toggle="dropdown"
           >
             <span className="user-img">
-              <img src="/assets/myimg/pos.jpg" alt="" />
+               <img src={prologo} alt="Smal" />
+              {/* <img src="/assets/myimg/pos.jpg" alt="" /> */}
               <span className="status online"></span>
             </span>
           </a>
@@ -137,7 +139,8 @@ export const Header = () => {
             <div className="profilename">
               <div className="profileset">
                 <span className="user-img">
-                  <img src="/assets/myimg/pos.jpg" alt="" />
+                  {/* <img src="/assets/myimg/pos.jpg" alt="" /> */}
+                   <img src={prologo} alt="Smal" />
                   <span className="status online"></span>
                 </span>
                 <div className="profilesets">

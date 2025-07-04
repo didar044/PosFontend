@@ -74,7 +74,7 @@ function Expense() {
     expenses.map(expense => (
       <tr key={expense.id}>
         <td>{expense.id}</td>
-        <td>{expense.category.name || 'Null'}</td>
+        <td>{expense.category?.name || 'Null'}</td>
         <td>{expense.reference_number}</td>
         <td>{expense.expense_for}</td>
         <td>{expense.amount}</td>

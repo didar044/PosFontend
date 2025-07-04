@@ -1,0 +1,72 @@
+.receipt-wrapper {
+  font-family: 'Courier New', Courier, monospace;
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border: 1px dashed #000;
+  width: 800px;
+  margin: auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-wrapper h2, 
+.receipt-wrapper h4, 
+.receipt-wrapper h5 {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.receipt-wrapper p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.receipt-wrapper .text-end {
+  text-align: right;
+}
+
+.receipt-wrapper .table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.receipt-wrapper .table th, 
+.receipt-wrapper .table td {
+  border: 1px dashed #000;
+  padding: 6px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.receipt-wrapper .table th {
+  background: #f8f8f8;
+}
+
+.receipt-wrapper button.btn {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+@media print {
+  .btn {
+    display: none;
+  }
+
+  body {
+    background: none;
+  }
+
+  .receipt-wrapper {
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .receipt-wrapper .table th,
+  .receipt-wrapper .table td {
+    font-size: 12px;
+  }
+}

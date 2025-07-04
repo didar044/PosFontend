@@ -1,0 +1,25 @@
+
+.pd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-top: 20px;
+  color: rgb(4, 66, 4);
+}
+
+.pd .col-lg-4 {
+  flex: 1;
+}
+th {
+  background: rgb(71, 139, 71);
+}
+
+.table-header th {
+  background-color: rgb(129, 189, 129);
+ color: aliceblue;
+  border-right: 2px solid white;
+  padding: 8px 12px;
+}
+
